@@ -263,3 +263,10 @@ gulp.task('html', function(){
 })
 
 ```
+
+###  访问github变快的方法，亲测有效
+- 1)在http://tool.chinaz.com/dns查询http://github.com
+- 2)找到TTL值最低的响应IP,比如IP92.30.253.113的TTL值最低你就选IP92.30.253.113。
+- 3)windows打开C:\Windows\System32\drivers\etc\hosts，在本机的hosts文件增加192.30.253.113 github.com
+- 4)保存hosts文件后
+- 在cmd里面输入ipconfig /flushdns 本机的dns缓存信息清空
