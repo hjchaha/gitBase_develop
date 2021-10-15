@@ -1,0 +1,1270 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0;
+	padding: 0;
+}
+/*定义页面继承默认字体*/
+body{
+	font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+	    color: #333;
+	min-width:1226px;
+}
+/*
+.api{
+	
+}
+.PageHeadTop{
+
+}
+*/
+.PageHead
+{
+	width:100%;
+	height:40px;
+	font-size: 12px;
+	color:rgb(176,176,176);
+	background-color: #333;
+	
+}
+/*版心*/
+.center
+{
+	width:1226px;
+	
+	margin: 0 auto;
+
+}
+.center a{
+	color:rgb(176,176,176);
+}
+.center a:hover{
+	color:rgba(255,255,255,1.00);
+}
+.temp{
+	background-color: #333;
+	height: 40px;
+}
+.leftNev{
+	height: 40px;
+}
+li{
+	list-style-type: none;
+}
+.leftNev:first-child{
+	display: inline-block;
+	height: 100%;
+}
+.leftNev>ul{
+	height:inherit;
+	line-height: 40px;
+}
+.leftNev > ul li{
+	
+	float: left;
+	height: inherit;
+
+	padding:0px 5px;
+	
+}
+
+.leftNev >ul li::before{
+	position: absolute;
+	top: 12px;
+	content: "";
+	width:1px;
+	height:15px;
+	background-color: rgb(66,66,66);
+	margin: 2px 0px 0 -5px;
+	
+}
+a{
+	text-decoration: none;
+}
+.rightNev
+{
+	height: 100%;
+	float: right;
+}
+.rightNev > ul{
+	height:inherit;
+}
+.rightNev > ul  li {
+	padding: 12px 5px;
+	float: right;
+}
+.rightNev > ul li::before{
+	position: absolute;
+	content: "";
+	width:1px;
+	border-radius: 50px;
+	height:15px;
+	background-color: rgb(66,66,66);
+	margin: 2px 0px 0 -5px;
+}
+.purchaseAuto{
+	height: inherit;
+	float: right;
+	line-height: 40px;
+	background-color: rgba(66,66,66,1);
+}
+
+.purchaseAuto div {
+	
+	height: inherit;
+	padding: 0px 50px;
+	float: right;
+}
+
+.img{
+	position:relative;
+}
+/*二维码*/
+.APPImg{
+	position: absolute;
+	top: 40px;
+	right: -40px;
+	width: 125px;
+	text-align: center;
+	background-color: white;
+	box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.2);
+	font-size: 14px;
+	color: black;
+	display: none;
+	height: 0px;
+	overflow: hidden;
+	animation: auto 1s cubic-bezier(1, 0.52, 0.45, 1.23) 0s 1;
+	animation-fill-mode:forwards;
+	z-index: 999;
+
+}
+/*二维码利用动画animation模拟小米效果*/
+@keyframes auto{
+	0%{
+		height: 0px;
+	}
+	100%{
+		height: 158px;
+	}
+}
+/*用伪类before做导航分割小米用的是<span>|<span\>*/
+.APPImg::before{
+	position: absolute;
+	transform: translate(150%,-100%);
+	content:"";
+	border: 10px solid red;
+	border-color: transparent transparent  white transparent;
+}
+.APPImg img{
+	margin-top:28px ;
+	margin-bottom: -15px;
+}
+.img:hover .APPImg{
+	display: inline-block;
+}
+
+/*模仿小米购物车加载*/
+/*————————————————————————————————————*/
+.shoop{
+	display: none;
+	position: absolute;
+	top: 40px;
+	right: 58px;
+	width: 320px;
+	height: 100px;
+	background-color: white;
+	box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.2);
+	animation: autos 0.3s cubic-bezier(1, 0.52, 0.45, 1.23) 0s 1;
+	animation-fill-mode:forwards;
+	z-index: 999;
+}
+@keyframes autos{
+	0%{
+		height: 0px;
+	}
+	100%{
+		height: 100px;
+	}
+}
+.load{
+	position: fixed;
+	top: 15%;
+	left: 84%;
+	margin-top: -15px;
+	margin-left: -15px;
+	width: 10px;
+	height: 0px;
+	background-color: red;
+	transform-origin: center;
+	transform:rotateX(180deg);
+	opacity: 0;
+	animation: play 0.3s ease 0.4s;
+	animation-fill-mode:forwards;
+	z-index: 999;
+}
+.load span{
+	position: absolute;
+	top: 50%;
+	left: 150%;
+	margin-top: -15px;
+	margin-left: -15px;
+	width: 10px;
+	height: 30px;
+	background-color: olivedrab;
+	transform-origin: center;
+	transform:rotateX(180deg);
+	animation: load2 0.5s cubic-bezier(0.94, -0.07, 0.44, 0.95) 0s infinite;
+	animation-direction: alternate;
+	
+}
+.load::before{
+	position: absolute;
+	top: -15px;
+	left: 10px;
+	content: "";
+	width: 10px;
+	height: 30px;
+	background-color:lawngreen;
+	animation: load1 0.5s ease 0s infinite ;
+	animation-direction: alternate;
+	z-index: 999;
+}
+.load::after{
+	position: absolute;
+	content:"";
+	top: -15px;
+	left: 20px;
+	width: 10px;
+	height: 30px;
+	background-color:orange;
+	animation: load 0.5s ease 0s infinite ;
+	animation-direction: alternate;
+	z-index: 999;
+}
+@keyframes play{
+	0%{
+		opacity: 1;	
+	}
+	100%{
+		opacity:1;
+	}
+}
+@keyframes load {
+	0%{
+		height: 20px;
+	}
+	50%{
+		height: 0px;
+	}
+	100%{
+		height: 10px;
+	}
+}
+@keyframes load2{
+	0%{
+		height: 0px;
+		
+	}
+	50%{
+		height:10px;
+	}
+	100%{
+		height: 20px;
+	}
+}
+@keyframes load1{
+	0%{
+		height: 10px;
+	}
+	50%{
+		height: 20px;
+	}
+	100%{
+		height: 0px;
+	}
+}
+
+.purchaseAuto:hover .shoop{
+	display: inline-block;
+}
+/*————————————————————————————————————*/
+
+.PageHeadBottom{
+	height:100px;
+}
+.PageHeadBottom .BottomStyle{
+	height: 100px;
+	overflow: hidden;
+}
+.PageHeadBottom .BottomStyle .log{
+	margin-top: 22.5px;
+	width: 55px;
+	height:55px;
+	float: left;
+	overflow: hidden;
+}
+.PageHeadBottom .BottomStyle .log a{
+	display: inline-block;
+	position: relative;
+	width: 55px;
+	height:55px;
+	transition:margin-left .1s ease 0s;
+	
+}
+/*伪类加背景属性模仿小米图标*/
+/*————————————————————————————————————————*/
+.log a::before,
+.log a::after
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 55px;
+	height:55px;
+	content: "";
+}
+.log a::before{
+	background:url(../image/mi-logo.png) #ff6700 no-repeat local content-box center;
+	margin-left: 0px;
+}
+.log a::after{
+	background:url(../image/mi-home.png) #ff6700 no-repeat local content-box center;
+	margin-left: -55px;
+}
+
+.PageHeadBottom .BottomStyle .log a:hover{
+	margin-left: 55px;
+}
+/*————————————————————————————————————————*/
+/*导航*/
+/*————————————————————————————————————————*/
+.navList{
+	float: left;
+	width: 650px;
+	height: inherit;
+	margin-left: 180px;
+	position: relative;
+}
+.commAll{
+	height: 100px;
+	line-height: 100px;
+}
+.commAll li
+{
+	float: left;
+	height: 100px;
+	padding: 0px 10px; 
+}
+.commAll li a {
+	
+	display: inline-block;
+	height: 88px;
+	font-size:16px;
+	    color: #333;
+}
+.commAll li a:hover {
+	color:#ff6700;
+}
+/*————————————————————————————————————————*/
+/*模拟小米搜索框这里用到了icon图标导入*/
+/*————————————————————————————————————————*/
+.search{
+	float: right;
+	height: 100px;
+	width: 301px;
+	position: relative;
+}
+.searchContent{	
+	position: absolute;
+	top: 50%;
+	transform: translate(0,-50%);
+	display: inline-block;
+	height: 50px;
+	width: 301px;
+	border:0.1px solid  #b0b0b0;
+	background-color: #fff;
+	line-height: 50px;
+}
+.searchContent:hover{
+	border:0.1px solid #ff6700;
+}
+.searchContent:hover  .submit{
+	border-left:0.1px solid #ff6700;
+	border-right:0.1px solid #ff6700;
+}
+.searchContent input[type = "text"]{
+	outline: none;
+	height: 45px;
+	width: 240px;
+	border:none;	
+	font-size: 16px;
+	margin:0 5px;
+	
+	
+}
+.pos{
+	position: relative;
+	
+}
+/*icon图标导入*/
+@font-face {
+  font-family: 'icomoon';
+  src:  url('./../icomoon/fonts/icomoon.eot?dqq11x');
+  src:  url('./../icomoon/fonts/icomoon.eot?dqq11x#iefix') format('embedded-opentype'),
+    url('./../icomoon/fonts/icomoon.ttf?dqq11x') format('truetype'),
+    url('./../icomoon/fonts/icomoon.woff?dqq11x') format('woff'),
+    url('./../icomoon/fonts/icomoon.svg?dqq11x#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.searchContent .submit{
+	font-family: 'icomoon';/*图标声明*/
+	outline: none;
+	border:none;
+	height: 50px;
+	width: 47px;
+	border-left: 0.5px solid  #b0b0b0;
+	border-right: 0.5px solid  #b0b0b0;
+	cursor: pointer;
+	transition: 0.3s;
+	background: #fff;
+	
+}
+.searchContent label{
+	display: inline-block;
+	height:50px;
+}
+.searchContent .submit:hover{
+	background: #ff6700;
+   	color: #fff; 
+}
+/*————————————————————————————————————————*/
+
+.autoImage{
+	position: relative;
+	width: 1226px;
+	background-color: aqua;
+	overflow: hidden;
+}
+.image
+{
+	width: 8582px;
+	height: 460px;
+	background-color:blue;
+}
+.image div 
+{
+	float: left;
+	height: 460px;
+}
+.imageNav{
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	margin: 20px 30px;
+}
+/*轮播图导航按钮*/
+/*————————————————————————————————————*/
+.imageNav a
+{
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	border:2px solid hsla(0,0%,100%,.3);
+	background-color: rgba(0,0,0,.4);
+	margin: 0 4px;
+}
+.imageNav a:hover
+{
+	border-color: rgba(0,0,0,.4);
+	background-color: hsla(0,0%,100%,.4);
+}
+/*小米动态轮播作业按钮用到精灵图技术这个也可以用字体图标来做这里我就放照小米的来做简单点吧*/
+/*————————————————————————————————————*/
+
+.autoLeft,
+.autoRight
+{
+	cursor: pointer;
+}
+.autoLeft {
+	position: absolute;
+	top: 50%;
+	left: 234px;
+	transform: translateY(-50%);
+	width:41px;
+	height: 69px;
+	background-color:aliceblue;
+	background:url(../image/icon-slides.png) no-repeat  -83px 0px;
+	
+}
+.autoLeft:hover{
+	background:url(../image/icon-slides.png) no-repeat  -0px 0px;
+}
+.autoRight {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+	width:41px;
+	height: 69px;
+	
+	background:url(../image/icon-slides.png) no-repeat  -125px 0px  ;
+	
+}
+.autoRight:hover{
+	background:url(../image/icon-slides.png) no-repeat  -42px 0px;
+}
+/*轮播图中的导航我在里直接把他写在当前模块 小米是写在最上面的导航模块可以能跟后端脚本有关*/
+/*__________________________________________*/
+.Nav{
+	position: absolute;
+	top: 0px;
+	height: 460px;
+	width: 234px;
+	background-color: rgba(105,101,101,.6);
+}
+.Nav ul li {
+	width: inherit;
+	height:42px;
+/*	background-color: antiquewhite;*/
+}
+.Nav ul li:hover{
+	background-color: #ff6700;
+}
+.Nav ul{
+	margin:21px 0;
+}
+.Nav ul li a{
+	position: relative;
+	display: block;
+	height:42px;
+	padding-left: 30px;
+	line-height: 42px;
+	color:#fff;
+/*	background-color:burlywood;*/
+}
+.Nav .icon{
+	position: absolute;
+	right: 20px;
+	display: inline-block;
+/*	background-color: aqua;*/
+}
+/*伪类icon的字体声明*/
+.Nav .icon::before{
+	font-family: 'icomoon';
+	font-style: normal;
+	font-weight: 900;
+	content: "\e901";
+}
+/*__________________________________________*/
+/*轮播图下面导航*/
+.ImNav{
+	margin:14px 0; 
+	overflow: hidden;
+}
+.leftNav{
+	width: 234px;
+	float: left;
+}
+.leftNav ul{
+	
+	overflow: hidden;
+	background: #5a5f50;
+	padding: 3px;
+}
+.leftNav ul li{
+	float: left;
+	font-size: 12px;
+}
+
+
+.leftNav ul li a{
+	display: table-cell;
+	vertical-align: middle;
+	width: 70px;
+	height: 82px;
+	text-align: center;
+	color: #fff;
+	padding: 0 3px;
+	opacity: 0.7;
+	transition-duration: 0.3s;
+}
+.leftNav ul li a:hover{
+	opacity:1;
+}
+.leftNav img{
+	width: 24px;
+	height: 24px;
+}
+.rightNav{
+	float: right;
+}
+.rightNav ul li{
+	float: left;
+	margin-left: 14px;
+}
+.rightNav ul li img{
+
+	width: 316px;
+	height: 170px;
+}
+/*秒杀*/
+
+.contain{
+	background-color: rgb(245,245,245);
+}
+.title
+{
+	position: relative;
+/*	background-color: aqua;*/
+}
+.title h2{
+	height: 58px;
+	line-height: 58px;
+	font-size: 22px;
+	font-weight: 200;
+}
+.pageMain{
+	background-color: rgb(245,245,245);
+	padding-bottom: 30px;
+}
+.Rcontrol,
+.Lcontrol{
+	width: 38px;
+	height: 23px;
+	position: absolute;
+	right: 0px;
+	top: 50%;
+	transform:translateY(-50%);
+	background-color: rgba(245,245,245);
+	border: 1px solid #e0e0e0;
+	font-family: 'icomoon';
+	text-align: center;
+	line-height: 23px;
+	cursor: pointer;
+	color: #b0b0b0;
+	font-weight:900;
+}
+.Lcontrol{
+	position: absolute;
+	top: 29%;
+	right: 40px;
+	transform:rotateY(180deg);
+}
+.Lcontrol::before{
+	content:'\e901';
+	
+}
+
+.Rcontrol::before{
+	content: '\e901';
+}
+/*
+.Ccontent{
+	
+}
+*/
+/*双伪元素清除浮动*/
+.Ccontent::before,.Ccontent::after{
+	display: block;
+	content: "";
+}
+.Ccontent::after{
+	clear: both;
+}
+
+.Ctime{
+	height: 342px;
+	width: 234px;
+	text-align: center;
+	background: rgb(241,237,237);
+	border-top: 1px solid #ef3a3b;
+	float: left;
+}
+.fied {
+	font-size:21px;
+	color:#ef3a3b;
+	margin-top: 55px;
+}
+.Ccontent{
+	*zoom:1;
+}
+.end{
+	font-size:15px;
+	color:rgba(0,0,0,.54);
+}
+.picture{
+	margin: 25px 0;
+}
+.time{
+	margin: 28px 0px;
+}
+.time {
+	position: relative;
+	height: 47px;
+	line-height: 47px;
+}
+.time i {
+	position: absolute;
+	top: 0;
+	right: 144px;
+	font-style: normal;
+	font-weight: 900;
+	font-size: 15px;
+	margin-top: 0px;
+	
+}
+.time i:nth-child(1)
+{
+	position: absolute;
+	right: 144px;
+}
+.time i:nth-child(2)
+{
+	position: absolute;
+	right: 85px;
+}
+.time span{
+	display:inline-block;
+	height: 46px;
+	width: 46px;
+	background-color: #605751;
+	line-height: 46px;
+	text-align: center;
+	margin:0 5px; 
+	color: #FFF;
+	font-size: 26px;
+}
+.commodity
+{
+/*屏幕*/
+	width: 992px;
+	float: right;
+	overflow: hidden;
+}
+.commodity ul{
+/*播放中*/
+	display: inline-block;
+	width:1240px;	
+	
+}
+.commodity ul li
+{
+	
+	width: 234px;
+	float: left;
+	background-color: white;
+	margin-left:14px; 
+}
+.commodity ul li:nth-child(2)
+{
+	border-top:1px solid blue;
+}
+.commodity ul li:nth-child(1)
+{
+	border-top:1px solid yellow;
+}
+.commodity ul li:nth-child(3)
+{
+	border-top:1px solid rgba(239,72,17,1.00);
+}
+.commodity ul li:nth-child(4){
+	border-top:1px solid  rgba(40,244,203,1.00);
+}
+.commodity ul li a{
+	display: inline-block;
+	height: 343px;
+	text-align: center;
+	
+}.commodity ul li a div{
+	margin-top: 15px;
+	width: 234px;
+	margin:15px 0;
+	color: red;
+} 
+.commodity ul li a p{
+	font-size: 12px;
+	color: #b0b0b0;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.text{
+	font-size:14px;
+	font-weight: 400;
+	color: #212121;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.homeBanner{
+	height: 120px;
+	margin: 22px 0;
+}
+.homeBanner a{
+	display:inline-block;
+}
+/*手机版快*/
+/*——————————————————————————————————————*/
+/*
+.homePhone{
+	
+}
+*/
+/*标题*/
+.PTitile{
+	position: relative;
+	
+	*zoom:1;/*兼容IE浏览器*/
+}
+/*单伪元素清楚浮动*/
+.PTitile::after{
+	display:block;
+	content: ".";
+	height: 0px;
+	overflow: hidden;
+	clear: both;
+}
+/*手机标题*/
+/*
+.PTitile {
+	height: 58px;
+	line-height: 58px;
+	float: left;
+	font-size: 22px;	
+	font-weight: 200;
+	
+}
+*/
+.PTmore{
+	position: absolute;
+	top: 50%;
+	right: 0px;
+	transform: translateY(-50%);
+	font-family: 'icomoon';/*图标声明*/	
+	cursor: pointer;
+	
+}
+ .PT{
+	float: left;
+	font-size: 16px;
+	color: #424242;
+	 transition-duration: .6s;
+}
+.PTmore::after{
+	display: inline-block;
+	content: "\e901";
+	margin-left: 10px;
+	margin-top: 3px;
+	width:20px;
+	height: 20px;
+	border-radius: 50%;
+	line-height: 20px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: 900;
+	color: #fff;
+	background-color: rgb(176,176,176);
+	 transition-duration: .6s;
+}
+.PTmore:hover::after{
+	background-color:rgb(255,103,0);
+	
+}
+.PTmore:hover .PT{
+	color: rgb(255,103,0);
+}
+/*标题*/
+/*内容*/
+
+.PUB_Content{
+	*zoom:1;
+}
+/*单伪元素清楚浮动*/
+.PUB_Content::after{
+	display:block;
+	content:".";
+	height: 0px;
+	overflow: hidden;
+	clear: both;
+}
+.PCLeft{
+	float: left;
+	height: 614px;	
+	transition-duration: .4s;
+}
+.PCLeft a{
+	display:inline-block;
+}
+.PCLeft:hover{
+	box-shadow: 0 15px 30px rgba(0,0,0,.15);
+}
+.PUB_PCRight{
+	width: 978px;
+	float: right;
+}
+.PUB_PCRight ul{
+	overflow: hidden;
+}
+.PUB_li{
+	width: 234px;
+	height: 300px;
+	text-align: center;
+	margin-left: 10px;
+	float: left;
+	background-color: #FFFFFF;
+	transition-duration: .4s;
+}
+
+.PUB_li:nth-child(5),
+.PUB_li:nth-child(6),
+.PUB_li:nth-child(7),
+.PUB_li:nth-child(8){
+	margin-top: 15px;
+}
+.PUB_li:hover{
+	box-shadow: 0 15px 30px rgba(0,0,0,.15);
+}
+
+.PUB_PCRImg{
+	
+}
+/*重用*/
+.PUB_Title{
+	padding: 5px 0px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 14px;
+	font-weight: 400;
+	color: #333;
+}
+/*重用*/
+.PUB_Price{
+	padding: 5px 0px;
+}
+.PUB_introduction{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 12px;
+	color: #b0b0b0;
+}
+.PUB_Price{
+	color:#ff6700;
+}
+
+/*内容*/
+/*——————————————————————————————————————*/
+
+/*电视*/
+/*标题*/
+.homeTelevsion{
+/*	background-color: brown;*/
+}
+.TV_title{
+	*zoom:1;
+}
+/*单标签法*/
+.TV_title::after{
+	display:block;
+	content:".";
+	height: 0px;
+	clear: both;
+	overflow: hidden;
+}
+.PUD_Title{
+	height: 58px;
+	line-height: 58px;
+	float: left;
+	font-size: 22px;	
+	font-weight: 200
+}
+.TV_st{
+	height: 58px;
+	line-height: 58px;
+	float:right;
+}
+.Lst{
+	position: relative;
+	font-size: 18px;
+	margin:0 30px;
+	color: #424242;
+	cursor: pointer;
+}
+.Lst::before{
+	position: absolute;
+	bottom: -5px;
+	content: "";
+	width: 35px;
+	height: 2px;
+	background-color: #ff6700;
+}
+.Rst{
+	position: relative;
+	font-size: 18px;
+	color: #424242;
+	cursor: pointer;
+}
+.Rst::before{
+	position: absolute;
+	bottom: -5px;
+	content: "";
+	width: 70px;
+	height: 2px;
+	background-color: #ff6700;	
+}
+/*标题*/
+/*
+.TV_content{
+	
+}
+*/
+.TV_left{
+	float: left;
+}
+.LImg{
+	height:300px;
+	transition-duration: .4s;
+	
+}
+.LImg:hover{
+	box-shadow: 0 15px 30px rgba(0,0,0,.15);
+}
+.TV_left ul li:last-child{
+	margin-top: 10px;
+}
+.PUB_right{
+	float: right;
+	width: 977px;
+	
+}
+/*li 划分*/
+.extra{
+	float: right;
+	width: 234px;
+	height: 300px;
+	margin-left: 10px;
+	margin-top: 15px;
+}
+.little_nav{
+	display: inline-block;
+	width: 234px;
+	height: 145px;
+	background: #FFF;
+}
+.little_nav img{
+	float:left;
+	margin: 25px 0 0 15px;
+}
+.Price{
+	float: left;
+	margin:34px 0 0 28px;
+}
+
+.Price p:first-child{
+	
+	font-size: 14px;
+	font-weight: 400;
+	color: #333;
+}
+.Price p:last-child{
+	margin-top: 8px;
+	color:#ff6700;
+}
+.TV_nav
+{
+	display: inline-block;
+	margin-top: 10px;
+	background: #FFF;
+	transition-duration: .4s;
+}
+.TV_nav:hover{
+	box-shadow: 0 15px 30px rgba(0,0,0,.15);
+}
+.TV_nav span{
+	position: relative;
+	display: table-cell;
+	vertical-align: middle;
+	width: 234px;
+	height: 145px;
+	padding-left: 30px;
+}
+.TV_nav span::before{
+	position: absolute;
+	top: 50%;
+	left: 155px;
+	transform: translateY(-50%);
+	font-family: "icomoon";
+	content: "\e902";
+	font-size: 50px;
+	color: #ff6700;
+}
+.TV_nav span p:first-child{
+	font-size: 18px;
+	color: #333;
+}
+.TV_nav span p:last-child
+{
+	color: rgb(176,176,176);
+}
+/*li 划分*/
+.mores span,
+.more span{
+	position: relative;
+	height: 58px;
+	line-height: 58px;
+	float:right;
+	font-size: 18px;
+	color: #424242;
+	cursor: pointer;
+	margin:0 10px;
+}
+
+.mores span:nth-child(3)::before,
+.mores span:nth-child(1)::before,
+.mores span:nth-child(2)::before{
+	position: absolute;
+	bottom: 15px;
+	content: "";
+	width: 55px;
+	height: 2px;
+	background-color: #ff6700;
+}
+.mores span:nth-child(3)::before,
+.more span::before{
+	position: absolute;
+	bottom: 15px;
+	content: "";
+	width: 35px;
+	height: 2px;
+	background-color: #ff6700;
+}
+.vide_li
+{
+	font-family: "icomoon";
+	position: relative;
+	width: 296px;
+	height: 285px;
+	text-align: center;
+	float: left;
+	margin-left: 14px;
+	background: #FFF;
+	transition-duration: .6s;
+}
+.V_content li:nth-child(1){
+	margin-left: 0px;
+	
+} 
+.vide_li::before{
+	position: absolute;
+	top: 50%;
+	left: 20px;
+	width: 32px;
+	height: 20px;
+	border: 2px solid #FFF;
+	border-radius: 25%;
+	content: "\e903";
+	font-size: 15px;
+	color:#FFF;
+	transition-duration: 0.4s;
+}
+.vide_li:hover::before{
+	background-color: #ff6700;
+}
+.vide_li:hover{
+	box-shadow: 0 15px 30px rgba(0,0,0,.15);
+}
+/*
+.foot{
+}
+*/
+.foot_top{
+	padding: 27px 0 54px 0;
+	border-bottom: 1px solid #e0e0e0;
+}
+.foot_top li{
+	float: left;
+    width: 19.8%;
+    height: 25px;
+    border-left: 1px solid #e0e0e0;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+	color: #616161;
+	cursor: pointer;
+	transition-duration: .4s;
+}
+.foot_top li:hover{
+	color: #f25807;
+}
+.Fleft{
+	float: left;
+	padding-top: 40px;
+}
+.Fleft ul{
+	float: left;
+	padding-right:97px;
+	
+}
+.Fleft ul li{
+	margin: 10px 0 0;
+    font-size: 12px;
+	color: #757575;
+	cursor: pointer;
+	transition-duration: .4s;
+}
+.Fleft ul li:first-child{
+	    margin: -1px 0 26px;
+    font-size: 14px;
+    line-height: 1.25;
+    color: #424242;
+	cursor: pointer;
+}
+.Fleft ul li:hover{
+	color: #f25807;
+}
+.Fright{
+	
+	float: right;
+    width: 251px;
+    border-left: 1px solid #e0e0e0;
+    text-align: center;
+    color: #616161;
+	
+}
+.phone{
+	
+   font-size: 22px;
+    line-height: 1;
+    color: #ff6700;
+	padding:50px 10px 0 10px;
+	    
+}
+.stime{
+	    margin: 0 0 5px 10px;
+    font-size: 12px;
+}
+.peopleS{
+	display: inline-block;
+	width: 120px;
+	height: 30px;
+	line-height: 30px;
+	color: #f25807;
+    transition-duration: .4s;
+    border: 1px solid #f25807;
+	cursor: pointer;
+}
+.peopleS:hover{
+	color:#FFF;
+	background-color: #f25807;
+}
+.attention{
+	 font-size: 12px;
+    margin-top: 10px;
+    position: relative
+}
